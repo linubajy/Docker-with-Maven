@@ -1,0 +1,19 @@
+#Creating a dockerfile
+#Dockerfile
+
+#Build an image
+#-t refers to tag
+#Dot indicates to build in current directory of the container
+docker image build -t linubajy/dockerhub:myfirstimage .
+
+#Run the container
+docker container run -it linubajy/dockerhub:myfirstimage
+
+#Push Image to DockerHub
+docker tag mavendemo:latest linubajy/dockerhub:myfirstimage
+docker push linubajy/dockerhub:myfirstimage
+
+#Data Persistance command
+#To store data outside the container inside the Host 
+docker volume create myvolume
+docker run -it --name=mysample --mount source=myvolume,destination=/app
